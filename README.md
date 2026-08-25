@@ -4,4 +4,4 @@
 ## Team Members
 > Team Member #1 Sarah Kuyper
 
-> Team Member #2 name
+> Team Member #2 Colin Todd
