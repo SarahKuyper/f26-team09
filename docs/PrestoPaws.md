@@ -1,34 +1,32 @@
 
 # Requirements – Starter Template
 
-**Project Name:** Your App Name \
-**Team:** Names and roles \
-**Course:** CSC 340\
+**Project Name:** PrestoPaws
+**Team: 9** Sarah Kuyper (Provider) and Colin Todd (Customer)
+**Course:** CSC 340-01\
 **Version:** 1.0\
-**Date:** 2026-08-25
+**Date:** 2026-09-25
 
 ---
 
 ## 1. Overview
-**Vision.** One or two sentences: who this is for, the core problem, and the outcome.
+**Vision.** This app is for cat owners. The core problem we're trying to solve is "Owners want to find quality items for their cats". The outcome we're hoping for is to create a website for cat owners to buy cat-focused items from pet businesses.
 
 **Glossary** Terms used in the project
 - **Term 1:** description.
 - **Term 2:** description
 
 **Primary Users / Roles.**
-- **Customer (e.g., Student/Patient/Pet Owner/etc. )** — 1 line goal statement.
-- **Provider (e.g., Teacher/Doctor/Pet Sitter/etc. )** — 1 line goal statement.
-- **SysAdmin (optional)** — 1 line goal statement.
+**Provider (e.g., Teacher/Doctor/Pet Sitter/etc. )** — Overall goal is to be able to make an account and sell items on the website.
 
-**Scope (this semester).**
-- <capability 1>
-- <capability 2>
-- <capability 3>
+**Scope (this semester) - Provider only**
+- User profiles (for Providers)
+- Ability to see item ratings and reviews
+- Selling items
 
-**Out of scope (deferred).**
-- <deferred 1>
-- <deferred 2>
+**Out of scope (deferred) - Provider only**
+- Provider verification
+- Item subscription
 
 > This document is **requirements‑level** and solution‑neutral; design decisions (UI layouts, API endpoints, schemas) are documented separately.
 
@@ -36,31 +34,9 @@
 
 ## 2. Functional Requirements (User Stories)
 Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`.** Each story includes at least one **Given/When/Then** scenario.
-
-### 2.1 Customer Stories
-- **US‑1 — <short title>**  
-  _Story:_ As a customer, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-- **US‑2 — <short title>**  
-  _Story:_ As a customer, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
 ### 2.2 Provider Stories
-- **US-20 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
+- **US-20 — <Provider Goal>**  
+  _Story:_ As a provider, I want to sell cat-related items so that (new) cat owners can properly take care of their cat(s).  
   _Acceptance:_
   ```gherkin
   Scenario: <happy path>
@@ -70,7 +46,7 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
   ```
 
 - **US-21 — <short title>**  
-  _Story:_ As a provider, I want … so that …  
+  _Story:_ As a provider, I want to be able to make an account so that …  
   _Acceptance:_
   ```gherkin
   Scenario: <happy path>
@@ -78,28 +54,6 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
     When  <action>
     Then  <observable outcome>
   ```
-
-### 2.3 SysAdmin Stories
-- **US‑30 — <short title>**  
-  _Story:_ As a sysadmin, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
-- **US‑31 — <short title>**  
-  _Story:_ As a sysadmin, I want … so that …  
-  _Acceptance:_
-  ```gherkin
-  Scenario: <happy path>
-    Given <preconditions>
-    When  <action>
-    Then  <observable outcome>
-  ```
-
 ---
 
 ## 3. Non‑Functional Requirements (make them measurable)
