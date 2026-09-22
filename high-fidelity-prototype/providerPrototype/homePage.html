@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PrestoPaws | Cat Supplies</title>
+	<title>P.PrestoPaws | Cat Supplies</title>
 	<style>
 		:root {
 			--ink: #28313b;
@@ -78,6 +78,16 @@
 			background: var(--teal);
 		}
 
+		.avatar {
+			vertical-align: middle;
+			width: 100px;
+			height: 100px;
+			border: solid;
+			border-color:crimson;
+			border-radius: 50%;
+			margin-bottom: 15px;
+		}
+
 		main {
 			max-width: 1180px;
 			margin: 0 auto;
@@ -114,6 +124,7 @@
 			border-spacing: 0;
 			width: 100%;
 			border: 1px solid #ddd;
+			margin-bottom: 15px;
 		}
 
 		th,
@@ -280,15 +291,14 @@
 			<span>PrestoPaws</span>
 		</a>
 		<nav aria-label="Account navigation">
-			<a href="loginPage.html">Log in</a>
-			<a href="signupPage.html">Sign up</a>
+			<a href="../providerPrototype/loginNav.html">Log in</a>
+			<a href="../providerPrototype/signupNav.html">Sign up</a>
 
 		</nav>
 	</header>
 
 	<div class="topnav">
-		<a href="../customerPrototype/homePage.html">Customer Home</a>
-		<a href="../providerPrototype/homePage.html">Business Home</a>
+		<a href="../customerPrototype/homePage.html">Home</a>
 		<a href="">Care</a>
 		<a href="">Food</a>
 		<a href="">Toys</a>
@@ -296,6 +306,8 @@
 	</div>
 
 	<main>
+		<img src="https://i.pinimg.com/736x/18/e6/76/18e6768219d5ece1cd24cb4eeef14eb9.jpg" alt="default business avatar"
+			class="avatar">
 		<h2>Welcome to your account!</h2>
 		<p>Here you can view your selling items, view their ratings, and publish a new item to be sold!</p>
 
