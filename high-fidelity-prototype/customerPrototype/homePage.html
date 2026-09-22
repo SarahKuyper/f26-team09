@@ -114,6 +114,27 @@
 			nav { gap: 0; }
 			nav a { padding: 0.55rem; font-size: 0.72rem; }
 		}
+				/* Add a black background color to the top navigation */
+		.topnav {
+			background-color: salmon;
+			overflow: hidden;
+		}
+
+		/* Style the links inside the navigation bar */
+		.topnav a {
+			float: left;
+			color: black;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+			font-size: 17px;
+		}
+
+		/* Change the color of links on hover */
+		.topnav a:hover {
+			background-color: var(--coral);
+			color: black;
+		}
 	</style>
 </head>
 <body>
@@ -127,7 +148,14 @@
 			<a href="signupPage.html">Sign up</a>
 		</nav>
 	</header>
-
+	<div class="topnav">
+		<a href="../customerPrototype/homePage.html">Customer Home</a>
+		<a href="../providerPrototype/homePage.html">Business Home</a>
+		<a href="">Care</a>
+		<a href="">Food</a>
+		<a href="">Toys</a>
+		<a href="">Feeders</a>
+	</div>
 	<main>
 		<section class="intro">
 			<h2>Good things<br>for good cats.</h2>
