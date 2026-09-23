@@ -71,11 +71,7 @@
 			font-weight: 700;
 			text-decoration: none;
 			border-radius: 999px;
-		}
 
-		nav a:last-child {
-			color: white;
-			background: var(--teal);
 		}
 
 		.avatar {
@@ -260,13 +256,16 @@
 			}
 		}
 
-		/* Add a black background color to the top navigation */
 		.topnav {
-			background-color: var(--peach);
+			border: var(--line);
+			border-style: solid;
+			border-radius: 2px;
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
-		/* Style the links inside the navigation bar */
 		.topnav a {
 			float: left;
 			color: black;
@@ -276,33 +275,33 @@
 			font-size: 17px;
 		}
 
-		/* Change the color of links on hover */
 		.topnav a:hover {
 			background-color: var(--coral);
-			color: black;
+			color: whitesmoke;
+		}
+
+		.site-nav a:last-child {
+			color: white;
+			background: var(--teal);
 		}
 	</style>
 </head>
 
 <body>
-	<header>
-		<a class="brand" href="homePage">
-			<img src="logo.jpg" alt="PrestoPaws logo">
-			<span>PrestoPaws</span>
-		</a>
-		<nav aria-label="Account navigation">
-			<a href="../providerPrototype/loginNav.html">Log in</a>
-			<a href="../providerPrototype/signupNav.html">Sign up</a>
-
+	<header class="site-header">
+		<a class="brand" href="homePage.html"><img src="logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+		<nav class="site-nav" aria-label="Account and cart navigation"><a href="../providerPrototype/homePage.html">Back
+				to Home</a>
+			<a href="../providerPrototype/homePage.html">Log Out</a>
 		</nav>
 	</header>
 
 	<div class="topnav">
-		<a href="../customerPrototype/homePage.html">Home</a>
-		<a href="">Care</a>
-		<a href="">Food</a>
-		<a href="">Toys</a>
-		<a href="">Feeders</a>
+		<nav class="category-nav" aria-label="Product categories"><a
+				href="../customerPrototype/homePage.html">Home</a><a href="homePage.html?category=Care"
+				data-category="Care">Care</a><a href="homePage.html?category=Food" data-category="Food">Food</a><a
+				href="homePage.html?category=Toys" data-category="Toys">Toys</a><a href="homePage.html?category=Feeders"
+				data-category="Feeders">Feeders</a></nav>
 	</div>
 
 	<main>
