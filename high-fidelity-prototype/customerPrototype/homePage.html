@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,42 @@
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <a class="brand" href="homePage.html"><img src="logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
-    <nav class="site-nav" aria-label="Account and cart navigation"><a href="loginPage.html">Log in</a><a href="signupPage.html">Sign up</a><a class="cart-link" href="cartPage.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav>
+    <nav class="site-nav" aria-label="Account and cart navigation"><a href="../providerPrototype/loginNav.html">Log
+        in</a><a href="../providerPrototype/signupNav.html">Sign up</a><a class="cart-link" href="cartPage.html">Cart
+        <span class="cart-count" data-cart-count>0</span></a></nav>
   </header>
   <main>
     <section class="intro">
-      <div><h1>Good things<br>for good cats.</h1><nav class="category-nav" aria-label="Product categories"><a href="homePage.html?category=Care" data-category="Care">Care</a><a href="homePage.html?category=Food" data-category="Food">Food</a><a href="homePage.html?category=Toys" data-category="Toys">Toys</a><a href="homePage.html?category=Feeders" data-category="Feeders">Feeders</a></nav></div>
+      <div>
+        <h1>Good things<br>for good cats.</h1>
+        <nav class="category-nav" aria-label="Product categories"><a href="homePage.html?category=Care"
+            data-category="Care">Care</a><a href="homePage.html?category=Food" data-category="Food">Food</a><a
+            href="homePage.html?category=Toys" data-category="Toys">Toys</a><a href="homePage.html?category=Feeders"
+            data-category="Feeders">Feeders</a></nav>
+      </div>
       <p>Thoughtfully chosen supplies for curious paws, cozy naps, and every little adventure.</p>
     </section>
     <section class="catalog" aria-labelledby="catalog-title">
-      <div class="catalog-heading"><h2 id="catalog-title">Shop cat essentials</h2><span data-result-count>4 items</span></div>
-      <form class="search-form" role="search" onsubmit="return false"><label class="visually-hidden" for="search">Search products</label><input class="search-input" id="search" data-search type="search" placeholder="Search by item or category" autocomplete="off"><button class="button" type="submit">Search</button></form>
+      <div class="catalog-heading">
+        <h2 id="catalog-title">Shop cat essentials</h2><span data-result-count>4 items</span>
+      </div>
+      <form class="search-form" role="search" onsubmit="return false"><label class="visually-hidden" for="search">Search
+          products</label><input class="search-input" id="search" data-search type="search"
+          placeholder="Search by item or category" autocomplete="off"><button class="button"
+          type="submit">Search</button></form>
       <div class="products" data-products></div>
-      <div class="empty-state" data-empty-state hidden><h2>No items found.</h2><p>Try another item name or clear the category filter.</p><a class="button secondary" href="homePage.html">Show all products</a></div>
+      <div class="empty-state" data-empty-state hidden>
+        <h2>No items found.</h2>
+        <p>Try another item name or clear the category filter.</p><a class="button secondary" href="homePage.html">Show
+          all products</a>
+      </div>
     </section>
   </main>
   <footer class="site-footer">© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
 </body>
+
 </html>

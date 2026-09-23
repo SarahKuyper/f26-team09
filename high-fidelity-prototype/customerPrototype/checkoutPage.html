@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,53 @@
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <a class="brand" href="homePage.html"><img src="logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
-    <nav class="site-nav" aria-label="Account and cart navigation"><a href="homePage.html">Shop</a><a class="cart-link" href="cartPage.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav>
+    <nav class="site-nav" aria-label="Account and cart navigation"><a href="homePage.html">Shop</a><a class="cart-link"
+        href="cartPage.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav>
   </header>
   <main data-checkout-page>
     <h1 class="page-title">Checkout</h1>
-    <section class="empty-state" data-checkout-empty hidden><h2>Your cart is empty.</h2><p>Add an item before starting checkout.</p><a class="button" href="homePage.html">Return to shop</a></section>
+    <section class="empty-state" data-checkout-empty hidden>
+      <h2>Your cart is empty.</h2>
+      <p>Add an item before starting checkout.</p><a class="button" href="homePage.html">Return to shop</a>
+    </section>
     <div class="checkout-layout">
       <form class="checkout-form" data-checkout-form>
-        <section class="form-section"><h2>Contact</h2><label>Email address<input type="email" name="email" autocomplete="email" required></label></section>
-        <section class="form-section"><h2>Shipping address</h2><label>Full name<input type="text" name="name" autocomplete="name" required></label><label>Street address<input type="text" name="address" autocomplete="street-address" required></label><label>City<input type="text" name="city" autocomplete="address-level2" required></label><label>ZIP code<input type="text" name="zip" inputmode="numeric" autocomplete="postal-code" required></label></section>
-        <section class="form-section"><h2>Payment (Not real)</h2><label>Card number<input type="text" name="card" inputmode="numeric" autocomplete="cc-number" pattern="[0-9 ]{12,19}" placeholder="1234 5678 9012 3456" required></label><label>Expiration<input type="text" name="expiration" placeholder="MM/YY" required></label></section>
+        <section class="form-section">
+          <h2>Contact</h2><label>Email address<input type="email" name="email" autocomplete="email" required></label>
+        </section>
+        <section class="form-section">
+          <h2>Shipping address</h2><label>Full name<input type="text" name="name" autocomplete="name"
+              required></label><label>Street address<input type="text" name="address" autocomplete="street-address"
+              required></label><label>City<input type="text" name="city" autocomplete="address-level2"
+              required></label><label>ZIP code<input type="text" name="zip" inputmode="numeric"
+              autocomplete="postal-code" required></label>
+        </section>
+        <section class="form-section">
+          <h2>Payment (Not real)</h2><label>Card number<input type="text" name="card" inputmode="numeric"
+              autocomplete="cc-number" pattern="[0-9 ]{12,19}" placeholder="1234 5678 9012 3456"
+              required></label><label>Expiration<input type="text" name="expiration" placeholder="MM/YY"
+              required></label>
+        </section>
         <button class="button" type="submit">Place order (Not real)</button>
       </form>
-      <aside class="summary"><h2>Order summary</h2><div data-checkout-summary></div></aside>
+      <aside class="summary">
+        <h2>Order summary</h2>
+        <div data-checkout-summary></div>
+      </aside>
     </div>
-    <section class="confirmation" data-confirmation hidden><h1>Order received.</h1><p>Thanks for shopping with PrestoPaws. This prototype does not process a real payment, but your order is complete.</p><p class="order-id">Order ID: <span data-order-id></span></p><a class="button" href="homePage.html">Continue shopping</a></section>
+    <section class="confirmation" data-confirmation hidden>
+      <h1>Order received.</h1>
+      <p>Thanks for shopping with PrestoPaws. This prototype does not process a real payment, but your order is
+        complete.</p>
+      <p class="order-id">Order ID: <span data-order-id></span></p><a class="button" href="homePage.html">Continue
+        shopping</a>
+    </section>
   </main>
   <footer class="site-footer">© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
 </body>
+
 </html>

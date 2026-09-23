@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,35 @@
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
+
 <body>
   <header class="site-header">
     <a class="brand" href="homePage.html"><img src="logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
-    <nav class="site-nav" aria-label="Account and cart navigation"><a href="loginPage.html">Log in</a><a href="signupPage.html">Sign up</a><a class="cart-link" href="cartPage.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav>
+    <nav class="site-nav" aria-label="Account and cart navigation"><a href="../providerPrototype/loginNav.html">Log in</a><a
+        href="../providerPrototype/signupNav.html">Sign up</a><a class="cart-link" href="cartPage.html">Cart <span class="cart-count"
+          data-cart-count>0</span></a></nav>
   </header>
   <main data-cart-page>
     <h1 class="page-title">Your cart</h1>
-    <section class="empty-state" data-cart-empty hidden><h2>Buy something.</h2><p>Find something thoughtful for your cat and it will appear here.</p><a class="button" href="homePage.html">Continue shopping</a></section>
+    <section class="empty-state" data-cart-empty hidden>
+      <h2>Buy something.</h2>
+      <p>Find something thoughtful for your cat and it will appear here.</p><a class="button"
+        href="homePage.html">Continue shopping</a>
+    </section>
     <div class="cart-layout" data-cart-content>
-      <section aria-label="Cart items"><div data-cart-items></div></section>
-      <aside class="summary"><h2>Order summary</h2><div><span>Subtotal</span><strong data-subtotal>$0.00</strong></div><div><span>Shipping</span><span>Free</span></div><div class="summary-total"><span>Total</span><strong data-total>$0.00</strong></div><a class="button" href="checkoutPage.html">Continue to checkout</a></aside>
+      <section aria-label="Cart items">
+        <div data-cart-items></div>
+      </section>
+      <aside class="summary">
+        <h2>Order summary</h2>
+        <div><span>Subtotal</span><strong data-subtotal>$0.00</strong></div>
+        <div><span>Shipping</span><span>Free</span></div>
+        <div class="summary-total"><span>Total</span><strong data-total>$0.00</strong></div><a class="button"
+          href="checkoutPage.html">Continue to checkout</a>
+      </aside>
     </div>
   </main>
   <footer class="site-footer">© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
 </body>
+
 </html>
