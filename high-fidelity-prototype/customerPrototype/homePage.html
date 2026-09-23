@@ -1,207 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PrestoPaws | Cat Supplies</title>
-	<style>
-		:root {
-			--ink: #28313b;
-			--muted: #697581;
-			--cream: #fffaf1;
-			--peach: #f6b58d;
-			--coral: #e67d63;
-			--teal: #2c7772;
-			--line: #eadfd2;
-		}
-
-		* { box-sizing: border-box; }
-
-		body {
-			margin: 0;
-			color: var(--ink);
-			background: var(--cream);
-			font-family: Georgia, "Times New Roman", serif;
-		}
-
-		header {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 2rem;
-			max-width: 1180px;
-			margin: 0 auto;
-			padding: 1.25rem 2rem;
-		}
-
-		.brand {
-			display: flex;
-			align-items: center;
-			gap: 0.85rem;
-			color: var(--ink);
-			font-size: 1.5rem;
-			font-weight: 700;
-			text-decoration: none;
-		}
-
-		.brand img {
-			width: 58px;
-			height: 58px;
-			border-radius: 12px;
-			object-fit: contain;
-			background: white;
-			border: 3px solid white;
-			box-shadow: 0 4px 14px rgba(40, 49, 59, 0.14);
-		}
-
-		nav { display: flex; gap: 0.7rem; }
-
-		nav a {
-			padding: 0.7rem 1rem;
-			color: var(--ink);
-			font-family: Arial, sans-serif;
-			font-size: 0.85rem;
-			font-weight: 700;
-			text-decoration: none;
-			border-radsius: 999px;
-		}
-
-		nav a:last-child {
-			color: white;
-			background: var(--teal);
-		}
-
-		main { max-width: 1180px; margin: 0 auto; padding: 3rem 2rem 5rem; }
-
-		.intro {
-			display: grid;
-			grid-template-columns: 1fr auto;
-			align-items: end;
-			gap: 2rem;
-			padding: 2rem 0 2.5rem;
-			border-bottom: 1px solid var(--line);
-		}
-
-		h1 { max-width: 650px; margin: 0; font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: 0.95; letter-spacing: -0.04em; }
-		.intro p { max-width: 300px; margin: 0; color: var(--muted); font-family: Arial, sans-serif; line-height: 1.6; }
-
-		.catalog { padding-top: 2.5rem; }
-		.catalog-heading { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.4rem; }
-		h2 { margin: 0; font-size: 1.7rem; }
-		.catalog-heading span { color: var(--muted); font-family: Arial, sans-serif; font-size: 0.82rem; }
-
-		.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-
-		.product { overflow: hidden; background: white; border: 1px solid var(--line); border-radius: 10px; }
-		.product-image { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #f4e8dc; }
-		.product-info { padding: 1.1rem; }
-		.category { margin: 0 0 0.35rem; color: var(--coral); font-family: Arial, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
-		.product h3 { margin: 0 0 0.8rem; font-size: 1.15rem; }
-		.price { margin: 0; color: var(--teal); font-family: Arial, sans-serif; font-size: 1rem; font-weight: 700; }
-
-		footer { padding: 1.5rem 2rem; color: var(--muted); font-family: Arial, sans-serif; font-size: 0.8rem; text-align: center; border-top: 1px solid var(--line); }
-
-		@media (max-width: 760px) {
-			header { padding: 1rem; }
-			main { padding: 2rem 1rem 3rem; }
-			.intro { grid-template-columns: 1fr; padding-top: 1rem; }
-			.products { grid-template-columns: repeat(2, 1fr); }
-		}
-
-		@media (max-width: 430px) {
-			.brand { font-size: 1.15rem; }
-			.brand img { width: 45px; height: 45px; }
-			nav { gap: 0; }
-			nav a { padding: 0.55rem; font-size: 0.72rem; }
-		}
-				/* Add a black background color to the top navigation */
-		.topnav {
-			background-color: salmon;
-			overflow: hidden;
-		}
-
-		/* Style the links inside the navigation bar */
-		.topnav a {
-			float: left;
-			color: black;
-			text-align: center;
-			padding: 14px 16px;
-			text-decoration: none;
-			font-size: 17px;
-		}
-
-		/* Change the color of links on hover */
-		.topnav a:hover {
-			background-color: var(--coral);
-			color: black;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrestoPaws | Cat Supplies</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-	<header>
-		<a class="brand" href="homePage">
-			<img src="logo.jpg" alt="PrestoPaws logo">
-			<span>PrestoPaws</span>
-		</a>
-		<nav aria-label="Account navigation">
-			<a href="../providerPrototype/loginNav.html">Log in</a>
-			<a href="../providerPrototype/signupNav.html">Sign up</a>
-		</nav>
-	</header>
-	<div class="topnav">
-		<a href="../customerPrototype/homePage.html">Home</a>
-		<a href="">Care</a>
-		<a href="">Food</a>
-		<a href="">Toys</a>
-		<a href="">Feeders</a>
-	</div>
-	<main>
-		<section class="intro">
-			<h2>Good things<br>for good cats.</h2>
-			<p>Thoughtfully chosen supplies for curious paws, cozy naps, and every little adventure.</p>
-		</section>
-
-		<section class="catalog" aria-labelledby="catalog-title">
-			<div class="catalog-heading">
-				<h2 id="catalog-title">Shop cat essentials</h2>
-			</div>
-			<div class="products">
-				<article class="product">
-					<img class="product-image" src="item1.webp" alt="Cat supply item for parasite prevention">
-					<div class="product-info">
-						<p class="category">Care</p>
-						<h3>Anti-Parasite</h3>
-						<p class="price">$24.00</p>
-					</div>
-				</article>
-				<article class="product">
-					<img class="product-image" src="item2.webp" alt="Cat supply item for eating">
-					<div class="product-info">
-						<p class="category">Food</p>
-						<h3>Indoor Kibble</h3>
-						<p class="price">$38.00</p>
-					</div>
-				</article>
-				<article class="product">
-					<img class="product-image" src="item3.webp" alt="Cat supply item for playtime">
-					<div class="product-info">
-						<p class="category">Toys</p>
-						<h3>Owl Wand</h3>
-						<p class="price">$10.00</p>
-					</div>
-				</article>
-				<article class="product">
-					<img class="product-image" src="item4.webp" alt="Cat supply item for feeding">
-					<div class="product-info">
-						<p class="category">Feeders</p>
-						<h3>Steel Bowl</h3>
-						<p class="price">$16.00</p>
-					</div>
-				</article>
-			</div>
-		</section>
-	</main>
-
-	<footer>© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
+  <header class="site-header">
+    <a class="brand" href="homePage.html"><img src="logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+    <nav class="site-nav" aria-label="Account and cart navigation"><a href="loginPage.html">Log in</a><a href="signupPage.html">Sign up</a><a class="cart-link" href="cartPage.html">Cart <span class="cart-count" data-cart-count>0</span></a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <div><h1>Good things<br>for good cats.</h1><nav class="category-nav" aria-label="Product categories"><a href="homePage.html?category=Care" data-category="Care">Care</a><a href="homePage.html?category=Food" data-category="Food">Food</a><a href="homePage.html?category=Toys" data-category="Toys">Toys</a><a href="homePage.html?category=Feeders" data-category="Feeders">Feeders</a></nav></div>
+      <p>Thoughtfully chosen supplies for curious paws, cozy naps, and every little adventure.</p>
+    </section>
+    <section class="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-heading"><h2 id="catalog-title">Shop cat essentials</h2><span data-result-count>4 items</span></div>
+      <form class="search-form" role="search" onsubmit="return false"><label class="visually-hidden" for="search">Search products</label><input class="search-input" id="search" data-search type="search" placeholder="Search by item or category" autocomplete="off"><button class="button" type="submit">Search</button></form>
+      <div class="products" data-products></div>
+      <div class="empty-state" data-empty-state hidden><h2>No items found.</h2><p>Try another item name or clear the category filter.</p><a class="button secondary" href="homePage.html">Show all products</a></div>
+    </section>
+  </main>
+  <footer class="site-footer">© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
 </body>
 </html>
