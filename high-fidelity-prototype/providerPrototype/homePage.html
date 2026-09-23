@@ -3,9 +3,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>P.PrestoPaws | Cat Supplies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrestoPaws | Business Account</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 	<style>
 		:root {
 			--ink: #28313b;
@@ -71,11 +73,7 @@
 			font-weight: 700;
 			text-decoration: none;
 			border-radius: 999px;
-		}
 
-		nav a:last-child {
-			color: white;
-			background: var(--teal);
 		}
 
 		.avatar {
@@ -83,7 +81,7 @@
 			width: 100px;
 			height: 100px;
 			border: solid;
-			border-color:crimson;
+			border-color: var(--peach);
 			border-radius: 50%;
 			margin-bottom: 15px;
 		}
@@ -260,13 +258,16 @@
 			}
 		}
 
-		/* Add a black background color to the top navigation */
 		.topnav {
-			background-color: salmon;
+			border: var(--line);
+			border-style: solid;
+			border-radius: 2px;
 			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
-		/* Style the links inside the navigation bar */
 		.topnav a {
 			float: left;
 			color: black;
@@ -276,37 +277,38 @@
 			font-size: 17px;
 		}
 
-		/* Change the color of links on hover */
 		.topnav a:hover {
 			background-color: var(--coral);
-			color: black;
+			color: whitesmoke;
+		}
+
+		.site-nav a:last-child {
+			color: white;
+			background: var(--teal);
 		}
 	</style>
 </head>
 
 <body>
-	<header>
-		<a class="brand" href="homePage">
-			<img src="logo.jpg" alt="PrestoPaws logo">
-			<span>PrestoPaws</span>
-		</a>
-		<nav aria-label="Account navigation">
-			<a href="../providerPrototype/loginNav.html">Log in</a>
-			<a href="../providerPrototype/signupNav.html">Sign up</a>
-
+	<header class="site-header">
+		<a class="brand" href="../customerPrototype/homePage.html"><img src="logo.jpg"
+				alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+		<nav class="site-nav" aria-label="Account and cart navigation"><a href="../providerPrototype/homePage.html">Back
+				to Home</a>
+			<a href="../providerPrototype/homePage.html">Log Out</a>
 		</nav>
 	</header>
 
 	<div class="topnav">
-		<a href="../customerPrototype/homePage.html">Home</a>
-		<a href="">Care</a>
-		<a href="">Food</a>
-		<a href="">Toys</a>
-		<a href="">Feeders</a>
+		<nav class="category-nav" aria-label="Product categories"><a
+				href="../customerPrototype/homePage.html">Home</a><a href="homePage.html?category=Care"
+				data-category="Care">Care</a><a href="homePage.html?category=Food" data-category="Food">Food</a><a
+				href="homePage.html?category=Toys" data-category="Toys">Toys</a><a href="homePage.html?category=Feeders"
+				data-category="Feeders">Feeders</a></nav>
 	</div>
 
 	<main>
-		<img src="https://i.pinimg.com/736x/18/e6/76/18e6768219d5ece1cd24cb4eeef14eb9.jpg" alt="default business avatar"
+		<img src="https://i.pinimg.com/736x/53/e8/22/53e8223abe92162e99a04fffc67dbc70.jpg" alt="default business avatar"
 			class="avatar">
 		<h2>Welcome to your account!</h2>
 		<p>Here you can view your selling items, view their ratings, and publish a new item to be sold!</p>
