@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.PrestoPaws | Cat Supplies</title>
+    <style>
+        :root {
+            --ink: #28313b;
+            --muted: #697581;
+            --cream: #fffaf1;
+            --peach: #f6b58d;
+            --coral: #e67d63;
+            --teal: #2c7772;
+            --line: #eadfd2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--cream);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            color: var(--ink);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 58px;
+            height: 58px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: white;
+            border: 3px solid white;
+            box-shadow: 0 4px 14px rgba(40, 49, 59, 0.14);
+        }
+
+        nav {
+            display: flex;
+            gap: 0.7rem;
+        }
+
+        nav a {
+            padding: 0.7rem 1rem;
+            color: var(--ink);
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 999px;
+        }
+
+        nav a:last-child {
+            color: white;
+            background: var(--teal);
+        }
+
+        main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        h2 {
+            max-width: 650px;
+            margin: 0;
+            font-size: clamp(2.8rem, 7vw, 5.8rem);
+            letter-spacing: -0.04em;
+        }
+
+        footer {
+            padding: 1.5rem 2rem;
+            color: var(--muted);
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            text-align: center;
+            border-top: 1px solid var(--line);
+        }
+
+        @media (max-width: 760px) {
+            header {
+                padding: 1rem;
+            }
+
+            main {
+                padding: 2rem 1rem 3rem;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                padding-top: 1rem;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .brand {
+                font-size: 1.15rem;
+            }
+
+            .brand img {
+                width: 45px;
+                height: 45px;
+            }
+
+            nav {
+                gap: 0;
+            }
+
+            nav a {
+                padding: 0.55rem;
+                font-size: 0.72rem;
+            }
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        /* Style the label to display next to the inputs */
+        label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        /* Style the submit button */
+        input[type=submit] {
+            background-color: lemonchiffon;
+            color: sienna;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* Style the container */
+        .container {
+            border-radius: 5px;
+            background-color: var(--coral);
+            padding: 20px;
+        }
+
+        /* Floating column for labels: 25% width */
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        /* Floating column for inputs: 75% width */
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+
+            .col-25,
+            .col-75,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="brand" href="homePage.html">
+            <img src="logo.jpg" alt="PrestoPaws logo">
+            <span>PrestoPaws</span>
+        </a>
+        <nav aria-label="Account navigation">
+            <a href="loginPage.html">Log in</a>
+            <a href="signupPage.html">Sign up</a>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="catalog" aria-labelledby="catalog-title">
+            <div class="catalog-heading">
+                <h2 id="catalog-title">Publish new item</h2>
+            </div>
+        </section>
+
+    </main>
+    <div class="container">
+        <form action="action_page.php">
+            <div class="row">
+                <div class="col-25">
+                    <label for="Pname">Product name</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="Pname" name="productName" placeholder="Enter product name..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="category">Category</label>
+                </div>
+                <div class="col-75">
+                    <select id="category" name="category">
+                        <option value="care">Care</option>
+                        <option value="food">Food</option>
+                        <option value="toys">Toys</option>
+                        <option value="feeder">Feeder</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="prod_desc">Product Description</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="prod_desc" name="prod_desc" placeholder="Describe your product"
+                        style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Publish new product">
+            </div>
+        </form>
+    </div>
+    <footer>© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
+</body>
+
+</html>
