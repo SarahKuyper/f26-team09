@@ -1,7 +1,7 @@
+<!-- This page is for businesses to publish new inventory -->
+<!-- COMPLETED 10/3/2026 -->
 <!DOCTYPE html>
 <html lang="en">
-<!-- COMPLETED 9/29/2026 -->
-<!-- This page is for Businesses to the publish new inventory -->
 
 <head>
     <meta charset="UTF-8">
@@ -11,68 +11,72 @@
 </head>
 
 <body>
-    <header class="site-header">
-        <a class="brand" href="../customerPrototype/homePage.html"><img src="../newProviderPrototype/Images/logo.jpg"
-                alt="PrestoPaws logo"><span>PrestoPaws</span></a>
-        <nav class="site-nav" aria-label="Account and cart navigation">
-            <a href="../providerPrototype/homePage.html">Log Out</a>
-        </nav>
-    </header>
+    <main>
+        <header class="site-header">
+            <a class="brand" href="../customerPrototype/homePage.html"><img
+                    src="../newProviderPrototype/Images/logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+            <nav class="site-nav" aria-label="Account and log-out navigation">
+                <a href="../SharedPages/Placeholder.html">Log Out</a>
+                <a class="site-nav-cta" href="../newProviderPrototype/BsnAccountPage.html">Business Account</a>
+            </nav>
+        </header>
 
-    <div class="topnav">
-        <h2>Publish a new item</h2>
-    </div>
-    <div class="container">
-        <form action="action_page.php">
-            <div class="row">
-                <div class="col-25">
-                    <label for="Item_name">Name of item</label>
+        <div class="topnav">
+            <h2>Publish a new item</h2>
+        </div>
+        <div class="container">
+            <form action="action_page.php">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Item_name">Name of item</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="Item_name" name="Item_name">
+                    </div>
                 </div>
-                <div class="col-75">
-                    <input type="text" id="Item_name" name="Item_name">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="price">Price</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="price" name="price" placeholder="$00.00">
+                    </div>
+                </div> <!-- ✅ close row here, AFTER col-75 -->
+                <div class="row">
+                    <div class="col-25">
+                        <label for="size">Size (in inches) </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="size" name="size" placeholder="00.00 x 00.00 x 00.00">
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="price">Price</label>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="category">Category</label>
+                    </div>
+                    <div class="col-75">
+                        <select id="category" name="category">
+                            <option value="placeholder"> --- </option>
+                            <option value="care">Care</option>
+                            <option value="food">Food</option>
+                            <option value="toys">Toys</option>
+                            <option value="feeders">Feeders</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-75">
-                    <input type="text" id="price" name="price" placeholder="$00.00">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="subject">Description of item</label>
+                    </div>
+                    <div class="col-75">
+                        <textarea id="desc" name="desc" style="height:200px"></textarea>
+                    </div>
                 </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="size">Size (in inches) </label>
+                <div class="row">
+                    <input type="submit" value="Submit">
                 </div>
-                <div class="col-75">
-                    <input type="text" id="size" name="size" placeholder="00.00 x 00.00 x 00.00">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="category">Category</label>
-                </div>
-                <div class="col-75">
-                    <select id="category" name="category">
-                        <option value="placeholder"> --- </option>
-                        <option value="care">Care</option>
-                        <option value="food">Food</option>
-                        <option value="toys">Toys</option>
-                        <option value="feeders">Feeders</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject">Description of item</label>
-                </div>
-                <div class="col-75">
-                    <textarea id="desc" name="desc"
-                        style="height:200px"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
+    </main>
     <footer>© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
+</body>

@@ -67,8 +67,13 @@ nav a {
 	text-decoration: none;
 	border-radius: 999px;
 }
+.site-nav {
+	display: flex;
+	gap: 0.7rem;
+	flex-wrap: nowrap;   /* keep the two links side-by-side at all times */
+}
 
-.site-nav a:last-child {
+.site-nav-cta {
 	color: white;
 	background: var(--teal);
 }
@@ -216,13 +221,13 @@ main a {
 /* ---------- Category top nav ---------- */
 
 .topnav {
-	border: var(--line);
-	border-style: solid;
-	border-radius: 2px;
-	overflow: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 1rem 0;
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid var(--line);
+	/* ✅ valid border */
 }
 
 .topnav a {
@@ -303,21 +308,31 @@ footer {
 }
 
 
-.row {
+/* Card grid (Business Account, Navigation pages) */
+.card-row {
 	display: flex;
-	flex-wrap: wrap;      /* allows wrapping only if you WANT it */
+	flex-wrap: wrap;
 	gap: 16px;
 	align-items: stretch;
 }
 
-.column {
+.card-column {
 	flex: 1 1 0;
 	min-width: 0;
 	margin-bottom: 16px;
 }
 
+/* Nav page: cards stay side-by-side forever */
+.card-row--fixed {
+	flex-wrap: nowrap;
+}
+
+.card-row--fixed .card-column {
+	flex: 1 1 50%;
+}
+
 @media screen and (max-width: 650px) {
-	.row:not(.row--fixed) .column {
+	.card-row:not(.card-row--fixed) .card-column {
 		flex-basis: 100%;
 	}
 }
@@ -373,6 +388,8 @@ textarea {
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
+	white-space: nowrap;
+	/* ✅ keeps "Size (in inches)" on one line */
 }
 
 /* Style the submit button */
@@ -391,20 +408,19 @@ input[type=submit] {
 .container {
 	border-radius: 5px;
 	padding: 20px;
+	/* 40px total horizontal */
 }
 
 /* Floating column for labels: 25% width */
 .col-25 {
-	float: left;
-	width: 25%;
-	margin-top: 6px;
+	flex: 0 0 30%;
+	/* give labels more room */
+	/* or: width: 30%; */
 }
 
-/* Floating column for inputs: 75% width */
 .col-75 {
-	float: left;
-	width: 75%;
-	margin-top: 6px;
+	flex: 1 1 auto;
+	min-width: 0;
 }
 
 /* Clear floats after the columns */
@@ -426,7 +442,8 @@ input[type=submit] {
 }
 
 
-html, body {
+html,
+body {
 	height: 100%;
 }
 
@@ -441,11 +458,13 @@ body {
 }
 
 main {
-	flex: 1;                 /* pushes footer down */
+	flex: 1;
+	/* pushes footer down */
 	max-width: 1180px;
 	margin: 0 auto;
 	padding: 3rem 2rem 5rem;
-	width: 100%;             /* so it doesn't collapse */
+	width: 100%;
+	/* so it doesn't collapse */
 }
 
 /* Nav page: force cards to stay side-by-side at ALL widths */
