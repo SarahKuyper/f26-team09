@@ -67,10 +67,12 @@ nav a {
 	text-decoration: none;
 	border-radius: 999px;
 }
+
 .site-nav {
 	display: flex;
 	gap: 0.7rem;
-	flex-wrap: nowrap;   /* keep the two links side-by-side at all times */
+	flex-wrap: nowrap;
+	/* keep the two links side-by-side at all times */
 }
 
 .site-nav-cta {
@@ -481,4 +483,28 @@ main {
 	.row:not(.row--fixed) .column {
 		flex-basis: 100%;
 	}
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ddd;
+}
+
+th,
+td {
+	text-align: left;
+	padding: 16px;
+}
+
+table img {
+	width: 60px;
+	/* or whatever size you want */
+	height: 60px;
+	object-fit: cover;
+	/* crops to a square so all rows align */
+	border-radius: 8px;
+	/* optional, matches the rest of your design */
+	display: block;
+	/* removes inline-image baseline gap */
 }
