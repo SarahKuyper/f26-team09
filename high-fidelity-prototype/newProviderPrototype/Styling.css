@@ -303,22 +303,25 @@ footer {
 }
 
 
-
-/* Three columns side by side */
-.column {
-	float: left;
-	width: 33.3%;
-	margin-bottom: 16px;
-	padding: 0 8px;
+.row {
+	display: flex;
+	flex-wrap: wrap;      /* allows wrapping only if you WANT it */
+	gap: 16px;
+	align-items: stretch;
 }
 
-/* Display the columns below each other instead of side by side on small screens */
+.column {
+	flex: 1 1 0;
+	min-width: 0;
+	margin-bottom: 16px;
+}
+
 @media screen and (max-width: 650px) {
-	.column {
-		width: 100%;
-		display: block;
+	.row:not(.row--fixed) .column {
+		flex-basis: 100%;
 	}
 }
+
 
 /* Add some shadows to create a card effect */
 .card {
@@ -419,5 +422,44 @@ input[type=submit] {
 	input[type=submit] {
 		width: 100%;
 		margin-top: 0;
+	}
+}
+
+
+html, body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	color: var(--ink);
+	background: var(--cream);
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+main {
+	flex: 1;                 /* pushes footer down */
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 3rem 2rem 5rem;
+	width: 100%;             /* so it doesn't collapse */
+}
+
+/* Nav page: force cards to stay side-by-side at ALL widths */
+.row--fixed {
+	flex-wrap: nowrap;
+}
+
+.row--fixed .column {
+	flex: 1 1 50%;
+	min-width: 0;
+}
+
+@media screen and (max-width: 650px) {
+	.row:not(.row--fixed) .column {
+		flex-basis: 100%;
 	}
 }
