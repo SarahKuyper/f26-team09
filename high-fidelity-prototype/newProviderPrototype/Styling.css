@@ -1,4 +1,9 @@
-/* This page is for CSS styling. Used for main header, footer, and other items that require uniformity. */
+/* ==========================================================================
+   PrestoPaws — Global Stylesheet
+   Used for main header, footer, and shared UI elements.
+   ========================================================================== */
+
+/* ---------- Design tokens ---------- */
 
 :root {
 	--ink: #28313b;
@@ -10,18 +15,30 @@
 	--line: #eadfd2;
 }
 
+/* ---------- Base / reset ---------- */
+
 * {
 	box-sizing: border-box;
 }
 
+html,
 body {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 	margin: 0;
 	color: var(--ink);
 	background: var(--cream);
 	font-family: Georgia, "Times New Roman", serif;
 }
 
-/* ---------- Header / brand / nav ---------- */
+/* ==========================================================================
+   Header / brand / nav
+   ========================================================================== */
 
 header {
 	display: flex;
@@ -70,9 +87,8 @@ nav a {
 
 .site-nav {
 	display: flex;
-	gap: 0.7rem;
 	flex-wrap: nowrap;
-	/* keep the two links side-by-side at all times */
+	gap: 0.7rem;
 }
 
 .site-nav-cta {
@@ -80,9 +96,13 @@ nav a {
 	background: var(--teal);
 }
 
-/* ---------- Main layout ---------- */
+/* ==========================================================================
+   Main layout
+   ========================================================================== */
 
 main {
+	flex: 1;
+	width: 100%;
 	max-width: 1180px;
 	margin: 0 auto;
 	padding: 3rem 2rem 5rem;
@@ -105,6 +125,11 @@ h1 {
 	letter-spacing: -0.04em;
 }
 
+h2 {
+	margin: 0;
+	font-size: 1.7rem;
+}
+
 .intro p {
 	max-width: 300px;
 	margin: 0;
@@ -113,43 +138,56 @@ h1 {
 	line-height: 1.6;
 }
 
-h2 {
-	margin: 0;
-	font-size: 1.7rem;
+main a {
+	color: chocolate;
+	text-decoration: none;
 }
 
-/* ---------- Avatar ---------- */
+/* ==========================================================================
+   Avatar
+   ========================================================================== */
 
 .avatar {
 	vertical-align: middle;
 	width: 100px;
 	height: 100px;
-	border: solid;
-	border-color: var(--peach);
+	border: solid var(--peach);
 	border-radius: 50%;
 }
 
-/* ---------- Tables ---------- */
+/* ==========================================================================
+   Tables
+   ========================================================================== */
 
 table {
+	width: 100%;
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
 	border-collapse: collapse;
 	border-spacing: 0;
-	width: 100%;
-	border: 1px solid #ddd;
-	margin-bottom: 15px;
 }
 
 th,
 td {
-	text-align: left;
 	padding: 16px;
+	text-align: left;
 }
 
 tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
-/* ---------- Catalog ---------- */
+table img {
+	display: block;
+	width: 60px;
+	height: 60px;
+	border-radius: 8px;
+	object-fit: cover;
+}
+
+/* ==========================================================================
+   Catalog
+   ========================================================================== */
 
 .catalog {
 	padding-top: 2.5rem;
@@ -157,8 +195,8 @@ tr:nth-child(even) {
 
 .catalog-heading {
 	display: flex;
-	justify-content: space-between;
 	align-items: baseline;
+	justify-content: space-between;
 	margin-bottom: 1.4rem;
 }
 
@@ -202,50 +240,159 @@ tr:nth-child(even) {
 	color: orange;
 }
 
-/* ---------- Buttons and links ---------- */
+/* ==========================================================================
+   Buttons and links
+   ========================================================================== */
 
 button {
-	background-color: antiquewhite;
-	padding: 5px 10px;
 	width: 100%;
-	cursor: pointer;
 	margin-bottom: 10px;
-	border-radius: 10px;
+	padding: 5px 10px;
+	background-color: antiquewhite;
 	border: 2px solid #ddd;
+	border-radius: 10px;
+	cursor: pointer;
 	font-family: Georgia, "Times New Roman", serif;
 }
 
-main a {
-	text-decoration: none;
-	color: chocolate;
+.button {
+	display: inline-block;
+	width: 100%;
+	padding: 8px;
+	background-color: var(--line);
+	border: none;
+	outline: 0;
+	text-align: center;
+	cursor: pointer;
 }
 
-/* ---------- Category top nav ---------- */
+.button:hover {
+	background-color: var(--peach);
+}
+
+/* ==========================================================================
+   Category top nav
+   ========================================================================== */
 
 .topnav {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	padding: 1rem 0;
+	justify-content: center;
 	margin-bottom: 1.5rem;
+	padding: 1rem 0;
 	border-bottom: 1px solid var(--line);
-	/* ✅ valid border */
 }
 
 .topnav a {
+	padding: 14px 16px;
 	color: black;
 	text-align: center;
-	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 17px;
 }
 
 .topnav a:hover {
-	background-color: var(--coral);
 	color: whitesmoke;
+	background-color: var(--coral);
 }
 
-/* ---------- Footer ---------- */
+/* ==========================================================================
+   Cards (Business Account, Navigation pages)
+   ========================================================================== */
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	gap: 16px;
+}
+
+.card-column {
+	flex: 1 1 0;
+	min-width: 0;
+	margin-bottom: 16px;
+}
+
+/* Nav page: cards stay side-by-side at all widths */
+.card-row--fixed {
+	flex-wrap: nowrap;
+}
+
+.card-row--fixed .card-column {
+	flex: 1 1 50%;
+}
+
+/* ==========================================================================
+   Account header
+   ========================================================================== */
+
+.account-header {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.account-header-text h2 {
+	margin: 0 0 0.4rem;
+}
+
+.account-header-text p {
+	margin: 0;
+}
+
+/* ==========================================================================
+   Forms (Publish Inventory and others)
+   ========================================================================== */
+
+.container {
+	padding: 20px;
+	border-radius: 5px;
+}
+
+input[type=text],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid var(--line);
+	border-radius: 4px;
+	resize: vertical;
+}
+
+label {
+	display: inline-block;
+	padding: 12px 12px 12px 0;
+	white-space: nowrap;
+}
+
+input[type=submit] {
+	float: right;
+	margin-bottom: 6px;
+	padding: 12px 20px;
+	background-color: var(--teal);
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.col-25 {
+	flex: 0 0 30%;
+}
+
+.col-75 {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 
 footer {
 	padding: 1.5rem 2rem;
@@ -256,7 +403,9 @@ footer {
 	border-top: 1px solid var(--line);
 }
 
-/* ---------- Responsive ---------- */
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 
 @media (max-width: 760px) {
 	header {
@@ -270,6 +419,22 @@ footer {
 	.intro {
 		grid-template-columns: 1fr;
 		padding-top: 1rem;
+	}
+}
+
+@media (max-width: 650px) {
+	.card-row:not(.card-row--fixed) .card-column {
+		flex-basis: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.col-25,
+	.col-75,
+	input[type=submit] {
+		width: 100%;
+		margin-top: 0;
 	}
 }
 
@@ -291,220 +456,4 @@ footer {
 		padding: 0.55rem;
 		font-size: 0.72rem;
 	}
-}
-
-/* Account header*/
-.account-header {
-	display: flex;
-	align-items: center;
-	gap: 1.5rem;
-	margin-bottom: 1.5rem;
-}
-
-.account-header-text h2 {
-	margin: 0 0 0.4rem;
-}
-
-.account-header-text p {
-	margin: 0;
-}
-
-
-/* Card grid (Business Account, Navigation pages) */
-.card-row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 16px;
-	align-items: stretch;
-}
-
-.card-column {
-	flex: 1 1 0;
-	min-width: 0;
-	margin-bottom: 16px;
-}
-
-/* Nav page: cards stay side-by-side forever */
-.card-row--fixed {
-	flex-wrap: nowrap;
-}
-
-.card-row--fixed .card-column {
-	flex: 1 1 50%;
-}
-
-@media screen and (max-width: 650px) {
-	.card-row:not(.card-row--fixed) .card-column {
-		flex-basis: 100%;
-	}
-}
-
-
-/* Add some shadows to create a card effect */
-.card {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* Some left and right padding inside the container */
-.container {
-	padding: 0 16px;
-}
-
-/* Clear floats */
-.container::after,
-.row::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-.button {
-	border: none;
-	outline: 0;
-	display: inline-block;
-	padding: 8px;
-	background-color: var(--line);
-	text-align: center;
-	cursor: pointer;
-	width: 100%;
-}
-
-.button:hover {
-	background-color: var(--peach);
-}
-
-/* PUBLISH INVENTORY */
-/* Style inputs, select elements and textareas */
-input[type=text],
-select,
-textarea {
-	width: 100%;
-	padding: 12px;
-	border: 1px solid var(--line);
-	border-radius: 4px;
-	box-sizing: border-box;
-	resize: vertical;
-}
-
-/* Style the label to display next to the inputs */
-label {
-	padding: 12px 12px 12px 0;
-	display: inline-block;
-	white-space: nowrap;
-	/* ✅ keeps "Size (in inches)" on one line */
-}
-
-/* Style the submit button */
-input[type=submit] {
-	background-color: var(--teal);
-	color: white;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	float: right;
-	margin-bottom: 6px;
-}
-
-/* Style the container */
-.container {
-	border-radius: 5px;
-	padding: 20px;
-	/* 40px total horizontal */
-}
-
-/* Floating column for labels: 25% width */
-.col-25 {
-	flex: 0 0 30%;
-	/* give labels more room */
-	/* or: width: 30%; */
-}
-
-.col-75 {
-	flex: 1 1 auto;
-	min-width: 0;
-}
-
-/* Clear floats after the columns */
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-
-	.col-25,
-	.col-75,
-	input[type=submit] {
-		width: 100%;
-		margin-top: 0;
-	}
-}
-
-
-html,
-body {
-	height: 100%;
-}
-
-body {
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	color: var(--ink);
-	background: var(--cream);
-	font-family: Georgia, "Times New Roman", serif;
-}
-
-main {
-	flex: 1;
-	/* pushes footer down */
-	max-width: 1180px;
-	margin: 0 auto;
-	padding: 3rem 2rem 5rem;
-	width: 100%;
-	/* so it doesn't collapse */
-}
-
-/* Nav page: force cards to stay side-by-side at ALL widths */
-.row--fixed {
-	flex-wrap: nowrap;
-}
-
-.row--fixed .column {
-	flex: 1 1 50%;
-	min-width: 0;
-}
-
-@media screen and (max-width: 650px) {
-	.row:not(.row--fixed) .column {
-		flex-basis: 100%;
-	}
-}
-
-table {
-	border-collapse: collapse;
-	width: 100%;
-	border: 1px solid #ddd;
-}
-
-th,
-td {
-	text-align: left;
-	padding: 16px;
-}
-
-table img {
-	width: 60px;
-	/* or whatever size you want */
-	height: 60px;
-	object-fit: cover;
-	/* crops to a square so all rows align */
-	border-radius: 8px;
-	/* optional, matches the rest of your design */
-	display: block;
-	/* removes inline-image baseline gap */
 }
