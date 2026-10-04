@@ -1,0 +1,179 @@
+/* This page is for CSS styling. Used for main header, footer, and other items that require uniformity. */
+
+:root {
+	--ink: #28313b;
+	--muted: #697581;
+	--cream: #fffaf1;
+	--peach: #f6b58d;
+	--coral: #e67d63;
+	--teal: #2c7772;
+	--line: #eadfd2;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding-top: 90px;
+	color: var(--ink);
+	background: var(--cream);
+	font-family: Georgia, "Times New Roman", serif;
+}
+
+/* ---------- Header / brand / nav ---------- */
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: var(--cream);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	padding: 1.25rem 2rem;
+}
+
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	color: var(--ink);
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.brand img {
+	width: 58px;
+	height: 58px;
+	border-radius: 12px;
+	object-fit: contain;
+	background: white;
+	border: 3px solid white;
+	box-shadow: 0 4px 14px rgba(40, 49, 59, 0.14);
+}
+
+nav {
+	display: flex;
+	gap: 0.7rem;
+}
+
+nav a {
+	padding: 0.7rem 1rem;
+	color: var(--ink);
+	font-family: Arial, sans-serif;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-decoration: none;
+	border-radius: 999px;
+}
+
+.site-nav {
+	display: flex;
+	gap: 0.7rem;
+	flex-wrap: nowrap;
+	/* keep the two links side-by-side at all times */
+}
+
+.site-nav-cta {
+	color: white;
+	background: var(--teal);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.bg-img {
+	/* The image used */
+	background-image: url("../newProviderPrototype/Images/LandingPage.jpg");
+
+	/* Control the height of the image */
+	min-height: 380px;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+}
+
+/* Add styles to the form container */
+.container {
+	margin: 20px;
+	max-width: 300px;
+	right: 0;
+	margin: 20px;
+	max-width: 300px;
+	padding: 16px;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+	width: 100%;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+}
+
+.btn {
+	display: block;
+	background-color: var(--teal);
+	color: white;
+	padding: 16px 20px;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	opacity: 0.9;
+	text-align: center;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+	font-size: 0.9rem;
+	font-weight: 700;
+	border-radius: 4px;
+	transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+	opacity: 1;
+	transform: translateY(-1px);
+}
+
+.topnav {
+	padding: 0 2rem;
+}
+
+.topnav h1 {
+	margin: 0;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+	padding: 1.5rem 2rem;
+	color: var(--muted);
+	font-family: Arial, sans-serif;
+	font-size: 0.8rem;
+	text-align: center;
+	border-top: 1px solid var(--line);
+}
