@@ -457,3 +457,15 @@ footer {
 		font-size: 0.72rem;
 	}
 }
+
+.review-product {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: inherit;
+	text-decoration: none;
+}
+
+.review-product:hover span {
+	color: chocolate;
+}
