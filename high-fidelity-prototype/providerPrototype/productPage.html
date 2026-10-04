@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indoor Kibble | PrestoPaws</title>
+  <style>
+    :root {
+      --ink: #28313b;
+      --muted: #697581;
+      --cream: #fffaf1;
+      --coral: #e67d63;
+      --teal: #2c7772;
+      --line: #eadfd2;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: var(--cream); font-family: Georgia, "Times New Roman", serif; }
+    a { color: inherit; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; max-width: 1180px; margin: 0 auto; padding: 1.25rem 2rem; }
+    .brand { color: var(--ink); font-size: 1.5rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .site-nav { display: flex; align-items: center; gap: .45rem; flex-wrap: wrap; justify-content: flex-end; }
+    .site-nav a { padding: .65rem .85rem; color: var(--ink); font: 700 .82rem Arial, sans-serif; text-decoration: none; border-radius: 999px; }
+    .site-nav a:hover { color: white; background: var(--coral); }
+    main { max-width: 1180px; margin: 0 auto; padding: 2.5rem 2rem 5rem; }
+    h1 { max-width: 700px; margin: 0; font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: .95; letter-spacing: -.04em; }
+    h2 { margin: 0; font-size: 1.7rem; }
+    h3 { margin: 0 0 .8rem; font-size: 1.15rem; }
+    .breadcrumb { display: inline-block; margin-bottom: 1.5rem; color: var(--muted); font: .85rem Arial, sans-serif; text-decoration: none; }
+    .detail-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+    .detail-image-wrap { overflow: hidden; background: #f4e8dc; border-radius: 10px; }
+    .detail-image { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    .detail-copy h1 { margin: .25rem 0 1rem; font-size: clamp(2.5rem, 5vw, 4.4rem); }
+    .category { margin: 0 0 .35rem; color: var(--coral); font: 700 .7rem Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .rating { color: var(--coral); font: 700 1rem Arial, sans-serif; }
+    .rating span { margin-left: .5rem; color: var(--muted); font-size: .8rem; font-weight: 400; }
+    .detail-price { margin: 1rem 0; color: var(--teal); font: 700 1.3rem Arial, sans-serif; }
+    .description { max-width: 540px; color: var(--muted); font: 1rem/1.7 Arial, sans-serif; }
+    .details-list { padding-left: 1.1rem; color: var(--muted); font: .9rem/1.8 Arial, sans-serif; }
+    .reviews { grid-column: 1 / -1; padding-top: 2rem; border-top: 1px solid var(--line); }
+    .reviews blockquote { display: inline-block; width: min(100%, 360px); margin: 1.2rem 1rem 0 0; padding: 1rem; background: white; border: 1px solid var(--line); border-radius: 8px; vertical-align: top; }
+    .reviews blockquote p { margin-top: 0; color: var(--muted); font: .95rem/1.5 Arial, sans-serif; }
+    .reviews cite { font: 700 .8rem Arial, sans-serif; }
+    .reply-box { width: min(100%, 360px); margin-top: .8rem; padding: .9rem; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+    .reply-box label { display: block; margin-bottom: .45rem; color: var(--ink); font: 700 .75rem Arial, sans-serif; text-transform: uppercase; letter-spacing: .06em; }
+    .reply-box textarea { width: 100%; min-height: 72px; padding: .7rem .75rem; resize: vertical; border: 1px solid var(--line); border-radius: 6px; font: .9rem Arial, sans-serif; color: var(--ink); background: #fffaf1; }
+    .reply-box button { margin-top: .6rem; padding: .55rem .9rem; background: var(--teal); color: white; border: none; border-radius: 999px; font: 700 .75rem Arial, sans-serif; cursor: pointer; }
+    .reply-box button:hover { background: var(--coral); }
+    .site-footer { padding: 1.5rem 2rem; color: var(--muted); font: .8rem Arial, sans-serif; text-align: center; border-top: 1px solid var(--line); }
+    @media (max-width: 760px) {
+      .site-header { padding: 1rem; align-items: flex-start; }
+      .site-nav { gap: 0; }
+      .site-nav a { padding: .55rem; }
+      main { padding: 2rem 1rem 3rem; }
+      .detail-layout { grid-template-columns: 1fr; }
+      .detail-copy h1 { font-size: 3.3rem; }
+    }
+    @media (max-width: 430px) {
+      .brand { font-size: 1.15rem; }
+      .site-header { gap: .5rem; }
+      .site-nav a { font-size: .7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top">PrestoPaws</a>
+    <nav class="site-nav" aria-label="Account navigation">
+      <a href="#reviews">Reviews</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <a class="breadcrumb" href="#top">&larr; Product details</a>
+    <section class="detail-layout" aria-labelledby="product-title">
+      <div class="detail-image-wrap">
+        <img class="detail-image" src="item2.webp" alt="Indoor kibble for cats">
+      </div>
+
+      <div class="detail-copy">
+        <p class="category">Food</p>
+        <h1 id="product-title">Indoor Kibble</h1>
+        <p class="rating" aria-label="4.6 out of 5 stars">★★★★★ <span>4.6 (27 reviews)</span></p>
+        <p class="detail-price">$38.00</p>
+        <p class="description">Balanced dry food made for indoor cats, with satisfying crunch and everyday nutrition for healthy, happy living.</p>
+        <ul class="details-list">
+          <li>5 lb bag</li>
+          <li>Chicken and brown rice recipe</li>
+          <li>Complete adult cat nutrition</li>
+        </ul>
+      </div>
+
+      <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+        <h2 id="reviews-title">Customer reviews</h2>
+        <blockquote>
+          <p>&ldquo;Both of my cats come running when they hear the bag.&rdquo;</p>
+          <cite>Chris R.</cite>
+        </blockquote>
+        <div class="reply-box">
+          <label for="reply-1">Reply</label>
+          <textarea id="reply-1" placeholder="Write a response to Chris..."></textarea>
+          <button type="button">Send reply</button>
+        </div>
+
+        <blockquote>
+          <p>&ldquo;Good ingredients and a size that lasts us a while.&rdquo;</p>
+          <cite>Leon K.</cite>
+        </blockquote>
+        <div class="reply-box">
+          <label for="reply-2">Reply</label>
+          <textarea id="reply-2" placeholder="Write a response to Leon..."></textarea>
+          <button type="button">Send reply</button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">&copy; 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
+</body>
+</html>

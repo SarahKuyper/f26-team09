@@ -1,0 +1,65 @@
+<!-- This page is the Navigation Page. This page is for navigating to the sign-up/log-in pages in as a business account. -->
+<!-- COMPLETED 10/3/2026-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrestoPaws | Navigation Page</title>
+    <link rel="stylesheet" href="Styling.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="../customerPrototype/homePage.html"><img src="../SharedPages/Images/logo.jpg"
+                alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+        <nav class="site-nav" aria-label="Account and cart navigation">
+        </nav>
+    </header>
+
+
+
+    <main>
+        <div class="card-row card-row--fixed">
+            <div class="card-column">
+                <div class="card">
+                    <form action="action_page.php">
+                        <div class="container">
+                            <h2>Sign-up</h2>
+                            <p>Fill out this form to sign-up.</p>
+                        </div>
+                        <div class="container" style="background-color:white">
+                            <input type="text" placeholder="Name" name="name" required>
+                            <input type="text" placeholder="Email address" name="mail" required>
+                        </div>
+                        <div class="container">
+                            <input type="submit" value="Sign-up">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card-column">
+                <div class="card">
+                    <form action="action_page.php">
+                        <div class="container">
+                            <h2>Log-in</h2>
+                            <p>Fill out this form to log-in.</p>
+                        </div>
+                        <div class="container" style="background-color:white">
+                            <input type="text" placeholder="Name" name="name" required>
+                            <input type="text" placeholder="Email address" name="mail" required>
+                        </div>
+                        <div class="container">
+                            <input type="submit" value="Log-in">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
+</body>
+
+</html>
