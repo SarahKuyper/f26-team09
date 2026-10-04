@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This page is for businesses to read recent reviews. -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PrestoPaws | Recent Reviews</title>
+	<link rel="stylesheet" href="Styling.css">
+	<script src="../customerPrototype/app.js" defer></script>
+	<script src="javaScript.js" defer></script>
+</head>
+
+<body>
+	<header class="site-header">
+		<a class="brand" href="../customerPrototype/homePage.html"><img src="../SharedPages/Images/logo.jpg"
+				alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+		<nav class="site-nav" aria-label="Account and log-out navigation">
+			<a href="../SharedPages/Placeholder.html">Log Out</a>
+			<a class="site-nav-cta" href="../newProviderPrototype/BsnAccountPage.html">Business Account</a>
+		</nav>
+	</header>
+	<main>
+		<div class="account-header">
+			<div class="account-header-text">
+				<h2>Recent Reviews</h2>
+				<p>Click any review to reply.</p>
+			</div>
+		</div>
+
+		<table data-reviews-table>
+			<thead>
+				<tr>
+					<th>Product</th>
+					<th>Reviewer</th>
+					<th>Review</th>
+				</tr>
+			</thead>
+			<tbody data-reviews-body></tbody>
+		</table>
+
+		<p data-reviews-empty hidden>No reviews yet.</p>
+	</main>
+	<footer>© 2026 PrestoPaws. Made for cats. Chosen by people who adore them.</footer>
