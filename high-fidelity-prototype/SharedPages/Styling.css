@@ -92,7 +92,7 @@ nav a {
 
 .bg-img {
 	/* The image used */
-	background-image: url("../newProviderPrototype/Images/LandingPage.jpg");
+	background-image: url("../SharedPages/Images/LandingPage.jpg");
 
 	/* Control the height of the image */
 	min-height: 380px;
