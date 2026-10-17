@@ -100,20 +100,69 @@ Write each story as: **As a `<role>`, I want `<capability>`, so that `<benefit>`
   _Story:_ As a provider, I want to make a business profile, so that I can sell my item(s)/inventory.  
   _Acceptance:_
   ```gherkin
-  Scenario: <Successfully register a business profile>
-    Given <I am not registered>
-    When  <I submit my information and create a business acount>
-    Then  <Customers can view my account>
-    And   <I can sell my inventory>
+  Scenario: Successfully register a business profile
+    Given I am not registered
+    When  I submit my information and create a business acount
+    Then  Customers can view my account
+    And   I can sell my inventory
+  ```
 
-- **US-21 — <Respond to reviews>**  
+- **US-21 — <See customer reviews>**  
+  _Story:_ As a provider, I want to view all reviews left for my shop so that I can monitor customer satisfaction and respond to feedback.  
+  _Acceptance:_
+  ```gherkin
+  Scenario: View reviews for a specific item
+    Given I am logged in as a provider
+    When I navigate to the reviews section of my dashboard
+    Then I should see a list of all reviews left on my items
+    And I should see the rating and comment for each review
+  ```
+
+- **US-22 — <Respond to reviews>**  
   _Story:_ As a provider, I want to be able to make an account so that I can respond to reviews and respond accordingly  
   _Acceptance:_
   ```gherkin
   Scenario: <Respond to reviews>
-    Given <I am registered in a business account>
-    When  <I log in>
-    Then  <I should be able to see 'recent reviews' and respond to them>
+    Given I am registered in a business account
+    When  I log in
+    Then  I should be able to see 'recent reviews' and respond to them
+  ```
+
+- **US-23 — <Manage inventory>**  
+  _Story:_ As a provider, I want to update or remove items from my shop so that my inventory and pricing are always accurate.  
+  _Acceptance:_
+  ```gherkin
+  Scenario: Update item price
+    Given I am logged in as a provider
+    When I submit a price change for one of my items
+    Then the item's price in the database should be updated
+    And customers should see the new price on the shop page
+  Scenario: Remove an item
+    Given I have an item listed in my shop
+    When I choose to delete the item
+    Then the item should no longer appear on the public shop page
+  ```
+
+- **US-24 — <View store dashboard>**  
+  _Story:_ As a provider, I want to view a summary of my store's performance (total items, average rating) so that I can understand how my business is doing.  
+  _Acceptance:_
+  ```gherkin
+  Scenario: View store dashboard
+  Given I am logged in as a provider
+    When I go to my main dashboard
+    Then I should see the total number of items I have published
+    And I should see my average review rating
+  ```
+
+- **US-25 — <Update item stock>**  
+  _Story:_ As a provider, I want to update the stock quantity of my items so that customers know if an item is available.  
+  _Acceptance:_
+  ```gherkin
+  Scenario: Mark an item as out of stock
+    Given I am logged in as a provider
+    When I set the stock quantity of an item to 0
+    Then the item should be marked as "isAvailable: false"
+    And customers should not be able to add it to their cart 
   ```
 ---
 
