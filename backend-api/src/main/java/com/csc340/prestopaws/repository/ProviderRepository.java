@@ -1,5 +1,4 @@
 package com.csc340.prestopaws.repository;
 
-public class ProviderRepository {
-    
+public interface ProviderRepository extends JpaRepository<Provider, Long> {
 }
