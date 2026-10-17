@@ -1,7 +1,10 @@
 /* ==========================================================================
-   Business page scripts — PrestoPaws
-   Depends on `products` defined in app.js. Load app.js first.
+   PrestoPaws — Provider (Business) Scripts
    ========================================================================== */
+
+// ==========================================
+// 1. Review Logic (RecentReviews.html)
+// ==========================================
 
 const REVIEW_REPLIES_KEY = "prestoPawsReplies";
 
@@ -23,6 +26,7 @@ function reviewKey(review) {
 }
 
 function getAllReviews() {
+  // Note: This relies on the 'products' array from app.js
   return products.flatMap((product) =>
     product.reviews.map((review) => ({
       productName: product.name,
@@ -37,7 +41,7 @@ function getAllReviews() {
 
 function renderRecentReviews() {
   const tbody = document.querySelector("[data-reviews-body]");
-  if (!tbody) return;
+  if (!tbody) return; // Exit if not on the RecentReviews page
 
   const emptyState = document.querySelector("[data-reviews-empty]");
   const reviews = getAllReviews();
@@ -90,14 +94,13 @@ function renderRecentReviews() {
 function wireReplyHandlers(tbody) {
   tbody.querySelectorAll(".review-row").forEach((row) => {
     row.addEventListener("click", (event) => {
-      // Let the product link behave normally.
-      if (event.target.closest("a")) return;
+      if (event.target.closest("a")) return; // Let product links work
 
       const replyRow = row.nextElementSibling;
       if (!replyRow) return;
       const isOpen = !replyRow.hidden;
 
-      // Close any other open reply forms first.
+      // Close any other open reply forms first
       tbody.querySelectorAll(".reply-row").forEach((other) => {
         other.hidden = true;
       });
@@ -123,7 +126,7 @@ function wireReplyHandlers(tbody) {
       const replies = getReplies();
       replies[key] = value;
       saveReplies(replies);
-      renderRecentReviews();
+      renderRecentReviews(); // Re-render to show the new reply
     });
   });
 
@@ -136,13 +139,108 @@ function wireReplyHandlers(tbody) {
 }
 
 function renderReviewTotals() {
+  const totalDisplay = document.querySelectorAll("[data-review-total]");
+  if (!totalDisplay.length) return; // Exit if no total display on page
+
   const total = products.reduce((sum, product) => sum + product.reviewCount, 0);
-  document.querySelectorAll("[data-review-total]").forEach((el) => {
+  totalDisplay.forEach((el) => {
     el.textContent = `${total} reviews across ${products.length} products`;
   });
 }
 
+// ==========================================
+// 2. Publish Item Form Logic (PublishItem.html)
+// ==========================================
+
+function setupPublishForm() {
+  const form = document.getElementById("publishForm");
+  if (!form) return; // Exit if not on PublishItem page
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Stop page reload
+
+    // Gather data from form inputs
+    const newItem = {
+      name: document.getElementById("Item_name").value,
+      price: parseFloat(document.getElementById("price").value),
+      category: document.getElementById("category").value,
+      description: document.getElementById("desc").value,
+      stockQuantity: parseInt(document.getElementById("stock").value) || 0,
+      isAvailable: true,
+      providerId: 1      // Hardcoded to provider account for testing
+    };
+
+    try {
+      // Send POST request to Spring Boot API
+      const response = await fetch("http://localhost:8080/api/items", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newItem)
+      });
+
+      if (response.ok) {
+        alert("Item published successfully!");
+        window.location.href = "BsnAccountPage.html"; // Redirect back to account
+      } else {
+        alert("Failed to publish item. Check console for details.");
+        console.error(await response.text());
+      }
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      alert("Cannot reach server. Make sure your Spring Boot backend is running!");
+    }
+  });
+}
+
+// ==========================================
+// 3. Manage Inventory Logic (ManageInventory.html)
+// ==========================================
+
+async function loadInventory() {
+  const tbody = document.getElementById("inventoryBody");
+  if (!tbody) return; // Exit if not on ManageInventory page
+
+  try {
+    // Fetch all items from Spring Boot API
+    const response = await fetch("http://localhost:8080/api/items");
+    const items = await response.json();
+
+    tbody.innerHTML = ""; // Clear existing rows
+
+    if (items.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No items found. Publish some!</td></tr>`;
+      return;
+    }
+
+    // Loop through items and create rows
+    items.forEach(item => {
+      const row = `
+        <tr>
+          <td><img src="../SharedPages/Images/item1.webp" alt="${item.name} Image"></td> <!-- Placeholder image -->
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>${item.stockQuantity}</td>
+        </tr>
+      `;
+      tbody.innerHTML += row;
+    });
+
+  } catch (error) {
+    console.error("Error loading inventory:", error);
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:red;">Failed to connect to server. Is Spring Boot running?</td></tr>`;
+  }
+}
+
+// ==========================================
+// 4. Initialize Everything on Page Load
+// ==========================================
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Note: These functions will automatically exit early 
+  // if their specific HTML elements are not on the current page.
+
   renderRecentReviews();
   renderReviewTotals();
+  setupPublishForm();
+  loadInventory();
 });

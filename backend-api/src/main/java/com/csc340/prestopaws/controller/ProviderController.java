@@ -12,6 +12,7 @@ import com.csc340.prestopaws.service.ItemService;
 import com.csc340.prestopaws.service.ProviderService;
 import com.csc340.prestopaws.DTO.ItemRequest;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/providers")
 public class ProviderController {

@@ -13,8 +13,8 @@
 <body>
     <main>
         <header class="site-header">
-            <a class="brand" href="../customerPrototype/homePage.html"><img
-                    src="../SharedPages/Images/logo.jpg" alt="PrestoPaws logo"><span>PrestoPaws</span></a>
+            <a class="brand" href="../customerPrototype/homePage.html"><img src="../SharedPages/Images/logo.jpg"
+                    alt="PrestoPaws logo"><span>PrestoPaws</span></a>
             <nav class="site-nav" aria-label="Account and log-out navigation">
                 <a href="../SharedPages/Placeholder.html">Log Out</a>
                 <a class="site-nav-cta" href="../newProviderPrototype/BsnAccountPage.html">Business Account</a>
@@ -25,7 +25,7 @@
             <h2>Publish a new item</h2>
         </div>
         <div class="container">
-            <form action="action_page.php">
+            <form id="publishForm">
                 <div class="row">
                     <div class="col-25">
                         <label for="Item_name">Name of item</label>
@@ -44,10 +44,10 @@
                 </div> <!-- ✅ close row here, AFTER col-75 -->
                 <div class="row">
                     <div class="col-25">
-                        <label for="size">Size (in inches) </label>
+                        <label for="stock">Stock Quantity</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="size" name="size" placeholder="00.00 x 00.00 x 00.00">
+                        <input type="number" id="stock" name="stock" placeholder="e.g. 50" min="0">
                     </div>
                 </div>
                 <div class="row">
