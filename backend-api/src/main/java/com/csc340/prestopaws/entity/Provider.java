@@ -1,13 +1,12 @@
 package com.csc340.prestopaws.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
@@ -27,6 +26,7 @@ public class Provider {
     private String email;
 
     @NotBlank(message = "Password is required")
+    @JsonIgnore // Prevents password from being serialized and sent in API responses
     private String password;
 
     // Relationship: 1 Provider -> Many Items

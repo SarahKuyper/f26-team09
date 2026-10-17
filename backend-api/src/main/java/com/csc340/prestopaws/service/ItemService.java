@@ -1,5 +1,17 @@
 package com.csc340.prestopaws.service;
 
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
+import java.util.List;
+
+// Project-specific:
+import com.csc340.prestopaws.entity.Item;
+import com.csc340.prestopaws.entity.Provider;
+import com.csc340.prestopaws.repository.ItemRepository;
+import com.csc340.prestopaws.repository.ProviderRepository;
+import com.csc340.prestopaws.DTO.ItemRequest;
+
 @Service
 public class ItemService {
     private final ItemRepository itemRepository;

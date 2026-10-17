@@ -1,10 +1,12 @@
 package com.csc340.prestopaws.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
+import java.util.ArrayList;
 
 @Data
 @NoArgsConstructor
