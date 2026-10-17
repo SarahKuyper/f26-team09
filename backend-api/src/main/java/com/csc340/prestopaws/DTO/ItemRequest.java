@@ -10,5 +10,6 @@ public class ItemRequest {
     private Integer stockQuantity;
     private String category;
     private Boolean isAvailable;
+    private String imageUrl;
     private Long providerId; // Client sends this ID
 }

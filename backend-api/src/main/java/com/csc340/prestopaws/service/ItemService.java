@@ -35,6 +35,7 @@ public class ItemService {
         item.setStockQuantity(request.getStockQuantity());
         item.setCategory(request.getCategory());
         item.setIsAvailable(request.getIsAvailable());
+        item.setImageUrl(request.getImageUrl());
         item.setProvider(provider);
 
         // 3. Save

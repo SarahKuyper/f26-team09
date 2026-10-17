@@ -167,6 +167,7 @@ function setupPublishForm() {
       description: document.getElementById("desc").value,
       stockQuantity: parseInt(document.getElementById("stock").value) || 0,
       isAvailable: true,
+      imageUrl: document.getElementById("imageUrl").value || "../SharedPages/Images/NoImage.jpg", // Default placeholder if empty
       providerId: 1      // Hardcoded to provider account for testing
     };
 
@@ -212,9 +213,13 @@ async function loadInventory() {
     }
 
     items.forEach(item => {
+      // 1. Check if the item has an imageUrl. If not, use the default NoImage.
+      const imageSrc = item.imageUrl ? item.imageUrl : "../SharedPages/Images/NoImage.jpg";
+
+      // 2. Render the row using the dynamic imageSrc
       const row = `
         <tr>
-          <td><img src="../SharedPages/Images/NoImage.jpg" alt="${item.name} Image" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"></td>
+          <td><img src="${imageSrc}" alt="${item.name} Image" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" onerror="this.src='../SharedPages/Images/NoImage.jpg'"></td>
           <td>${item.name}</td>
           <td>$${item.price.toFixed(2)}</td>
           <td>${item.stockQuantity}</td>
@@ -227,7 +232,19 @@ async function loadInventory() {
     console.error("Error loading inventory:", error);
     tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:red;">Failed to connect to server. Is Spring Boot running?</td></tr>`;
   }
-}
+} // <-- This closes loadInventory
+
+// ==========================================
+// 4. Initialize Everything on Page Load
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderRecentReviews();
+  renderReviewTotals();
+  setupPublishForm();
+  loadInventory();
+});
+
 
 // ==========================================
 // 4. Initialize Everything on Page Load
