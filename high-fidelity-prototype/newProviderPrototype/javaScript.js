@@ -198,28 +198,21 @@ function setupPublishForm() {
 
 async function loadInventory() {
   const tbody = document.getElementById("inventoryBody");
-  if (!tbody) return; // Exit if not on ManageInventory page
+  if (!tbody) return;
 
-  async function loadInventory() {
-    const tbody = document.getElementById("inventoryBody");
-    if (!tbody) return; // Exit if not on ManageInventory page
+  try {
+    const response = await fetch("http://localhost:8080/api/items");
+    const items = await response.json();
 
-    try {
-      // Fetch all items from Spring Boot API
-      const response = await fetch("http://localhost:8080/api/items");
-      const items = await response.json();
+    tbody.innerHTML = "";
 
-      tbody.innerHTML = ""; // Clear existing rows
+    if (items.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No items found. Publish some!</td></tr>`;
+      return;
+    }
 
-      // 1. Handle Empty State (Server connected, but 0 items)
-      if (items.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No items found. Publish some!</td></tr>`;
-        return; // Stop here so it doesn't try to loop
-      }
-
-      // 2. Loop through items and create rows
-      items.forEach(item => {
-        const row = `
+    items.forEach(item => {
+      const row = `
         <tr>
           <td><img src="../SharedPages/Images/NoImage.jpg" alt="${item.name} Image" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"></td>
           <td>${item.name}</td>
@@ -227,28 +220,25 @@ async function loadInventory() {
           <td>${item.stockQuantity}</td>
         </tr>
       `;
-        tbody.innerHTML += row;
-      });
+      tbody.innerHTML += row;
+    });
 
-    } catch (error) {
-      // 3. Handle Error State (Server is down or network failed)
-      console.error("Error loading inventory:", error);
-      tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:red;">Failed to connect to server. Is Spring Boot running?</td></tr>`;
-    }
+  } catch (error) {
+    console.error("Error loading inventory:", error);
+    tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; color:red;">Failed to connect to server. Is Spring Boot running?</td></tr>`;
   }
-
-  // ==========================================
-  // 4. Initialize Everything on Page Load
-  // ==========================================
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // Note: These functions will automatically exit early 
-    // if their specific HTML elements are not on the current page.
-
-    renderRecentReviews();
-    renderReviewTotals();
-    setupPublishForm();
-    loadInventory();
-  });
-
 }
+
+// ==========================================
+// 4. Initialize Everything on Page Load
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Note: These functions will automatically exit early 
+  // if their specific HTML elements are not on the current page.
+
+  renderRecentReviews();
+  renderReviewTotals();
+  setupPublishForm();
+  loadInventory();
+});
