@@ -30,6 +30,8 @@ public class Item {
     private String category;
     private Boolean isAvailable;
 
+    private String imageUrl;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "provider_id", nullable = false)
     private Provider provider;

@@ -8,6 +8,7 @@ import com.csc340.prestopaws.entity.Item;
 import com.csc340.prestopaws.service.ItemService;
 import com.csc340.prestopaws.DTO.ItemRequest;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
