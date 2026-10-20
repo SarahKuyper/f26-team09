@@ -2,24 +2,23 @@
 
 ## UML Diagram
 
-![Class Diagram](/docs/team09 UML design.png)
+![UML Diagram](docs/team09-UML-design.png "UML Diagram")
 
 ## Endpoints
 
 Customer (Colin Todd)
 | Method | Path | Description | Success |
 |--------|------|-------------|---------|
-| `POST` | `/api/customers` | Create a buyer | 201 |
-| `GET` | `/api/customers` | List buyers | 200 |
-| `GET` | `/api/customers/{id}` | Get a buyer | 200 |
+| `POST` | `/api/customers` | Create a customer profile | 201 |
+| `GET` | `/api/customers` | List all customers | 200 |
+| `GET` | `/api/customers/{id}` | Get a specific customer | 200 |
 | `POST` | `/api/customers/orders` | Create an order | 201 |
 | `GET` | `/api/customers/orders` | List orders | 200 |
-| `GET` | `/api/customers/orders/{id}` | Get an order | 200 |
-| `GET` | `/api/customers/orders/buyer/{buyerId}` | List a buyer’s orders | 200 |
-| `POST` | `/api/customers/order-items/order/{orderId}` | Add an item to an order | 201 |
-| `GET` | `/api/customers/order-items` | List order items | 200 |
-| `GET` | `/api/customers/order-items/{id}` | Get an order item | 200 |
-| `GET` | `/api/customers/order-items/order/{orderId}` | List items in an order | 200 |
+| `GET` | `/api/customers/orders/{id}` | Get a specific order | 200 |
+| `GET` | `/api/customers/orders/buyer/{buyerId}` | List a customer’s orders | 200 |
+| `POST` | `/api/customers/order-items/order/{orderId}` | Add an item to an existing order | 201 |
+| `GET` | `/api/customers/order-items` | List all ordered items | 200 |
+| `GET` | `/api/customers/order-items/{id}` | Get a specific ordered item | 200 |
 | `POST` | `/api/customers/reviews` | Create a review | 201 |
 
 #### `POST /api/customers` example
@@ -66,13 +65,14 @@ Provider (Sarah Kuyper)
 | Method | Path | Description | Success |
 |--------|------|-------------|---------|
 | `GET` | `/api/providers/reviews` | List reviews | 200 |
-| `GET` | `/api/providers/reviews/{id}` | Get a review | 200 |
+| `GET` | `/api/providers/reviews/{id}` | Get a specific review | 200 |
 | `GET` | `/api/providers/reviews/item/{itemId}` | List reviews for an item | 200 |
 | `GET` | `/api/providers/reviews/provider/{providerId}` | List reviews for a provider | 200 |
 | `POST` | `/api/items` | Creates an item | 201 |
 | `GET` | `/api/items` | Returns all items | 200 |
-| `POST` | `/api/providers` | Creates a provider | 201 |
-| `GET` | `/api/providers/{id}` | Returns the provider | 200 |
+| `POST` | `/api/providers` | Creates a provider profile | 201 |
+| `GET` | `/api/providers` | List all providers | 200 |
+| `GET` | `/api/providers/{id}` | Get a specific provider | 200 |
 
 #### `POST /api/items` example
 ```json
