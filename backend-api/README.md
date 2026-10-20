@@ -2,7 +2,7 @@
 
 ## UML Diagram
 
-![UML Diagram](docs/team09-UML-design.png "UML Diagram")
+![UML Diagram](../docs/team09-UML-design.png "UML Diagram")
 
 ## Endpoints
 
