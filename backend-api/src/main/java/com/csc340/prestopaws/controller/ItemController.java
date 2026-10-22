@@ -7,12 +7,12 @@ import java.util.List;
 import com.csc340.prestopaws.entity.Item;
 import com.csc340.prestopaws.service.ItemService;
 import com.csc340.prestopaws.DTO.ItemRequest;
+import org.springframework.web.server.ResponseStatusException;
 
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {
-    // ... rest of your code
     private final ItemService itemService;
 
     public ItemController(ItemService itemService) {
@@ -30,5 +30,11 @@ public class ItemController {
     @GetMapping
     public List<Item> getAllItems() {
         return itemService.getAllItems();
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteItem(@PathVariable Long id) {
+        itemService.deleteItem(id);
     }
 }

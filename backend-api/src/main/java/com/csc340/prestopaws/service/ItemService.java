@@ -45,4 +45,11 @@ public class ItemService {
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
+
+    public void deleteItem(Long id) {
+        if (!itemRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found");
+        }
+        itemRepository.deleteById(id);
+    }
 }

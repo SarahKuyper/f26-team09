@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.List;
 import java.util.ArrayList;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -33,5 +35,13 @@ public class Provider {
     // This tells JPA to look at the "provider" field in the Item class
     @OneToMany(mappedBy = "provider", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore // Prevents infinite loop when serializing Provider
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Item> items = new ArrayList<>();
+
+    @OneToMany(mappedBy = "provider")
+    @JsonIgnore
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    private List<Review> reviews = new ArrayList<>();
 }
