@@ -97,3 +97,9 @@ Provider (Sarah Kuyper)
 ```
 
 There are currently no update or delete endpoints.
+
+### Link to deployed API on Render
+
+https://f26-team09-prestopaws-backend.onrender.com
+
+NOTICE: Free Render services sleep when idle, so the first request can take up to a minute.
