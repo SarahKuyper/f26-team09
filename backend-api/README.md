@@ -33,14 +33,21 @@ Customer (Colin Todd)
 #### `POST /api/customers/orders` example
 ```json
 {
-"buyerId": 12,
-"shippingPrice": 5.00,
-"orderItems": [
-{ "itemId": 4, "quantity": 2 },
-{ "itemId": 9, "quantity": 1 }
-]
+  "buyerId": 1,
+  "shippingPrice": 5.00,
+  "orderItems": [
+    {
+      "itemId": 3,
+      "quantity": 2
+    },
+    {
+      "itemId": 4,
+      "quantity": 1
+    }
+  ]
 }
 ```
+Please note that you must use existing IDs when Posting.
 
 #### `POST /api/customers/order-items/order/{orderId}` example
 ```json
