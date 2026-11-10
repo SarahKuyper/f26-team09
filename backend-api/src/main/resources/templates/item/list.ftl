@@ -15,17 +15,16 @@
 
     <main>
         <h2>Items for ${provider.name}</h2>
-
+        
         <p>
             <a href="/providers/${provider.id}">&larr; Back to profile</a> | 
-            <a href="/providers/${provider.id}/items/new">+ Create new item</a>
+            <a href="/providers/${provider.id}/items/new">+ Publish new item</a>
         </p>
 
         <#if items?? && items?size gt 0>
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Price</th>
@@ -36,7 +35,6 @@
                 <tbody>
                     <#list items as item>
                         <tr>
-                            <td>${item.id}</td>
                             <td>${item.name}</td>
                             <td>${item.category!""}</td>
                             <td>$${item.price!"0.00"}</td>
