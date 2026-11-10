@@ -46,6 +46,10 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
+    public List<Item> getItemsByProviderId(Long providerId) {
+        return itemRepository.findByProviderId(providerId);
+    }
+
     public void deleteItem(Long id) {
         if (!itemRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found");
