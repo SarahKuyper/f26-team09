@@ -46,9 +46,13 @@ public class ItemMvcController {
             model.addAttribute("message", "No provider with id " + providerId);
             return "error";
         }
+        
         ItemRequest itemRequest = new ItemRequest();
         itemRequest.setProviderId(providerId);
         itemRequest.setIsAvailable(true);
+        
+        // REMOVED: itemRequest.setImageUrl("/Images/NoImage.jpg");
+
         model.addAttribute("item", itemRequest);
         model.addAttribute("providerId", providerId);
         return "item/form";
@@ -67,8 +71,67 @@ public class ItemMvcController {
             return "item/form";
         }
 
+        // Enforce the default if the user manually cleared the box
+        if (itemRequest.getImageUrl() == null || itemRequest.getImageUrl().trim().isEmpty()) {
+            itemRequest.setImageUrl("/Images/NoImage.jpg");
+        }
+
         try {
-            Item saved = itemService.createItem(itemRequest);
+            itemService.createItem(itemRequest);
+            return "redirect:/providers/" + providerId + "/items";
+        } catch (ResponseStatusException e) {
+            model.addAttribute("message", e.getReason());
+            return "error";
+        }
+    }
+
+    @GetMapping("/{itemId}/edit")
+    public String editForm(@PathVariable Long providerId, @PathVariable Long itemId, Model model) {
+        try {
+            Provider provider = providerService.getProviderById(providerId);
+            Item item = itemService.getItemById(itemId);
+
+            if (!item.getProvider().getId().equals(provider.getId())) {
+                model.addAttribute("message", "Item does not belong to the specified provider");
+                return "error";
+            }
+
+            ItemRequest itemRequest = new ItemRequest();
+            itemRequest.setName(item.getName());
+            itemRequest.setDescription(item.getDescription());
+            itemRequest.setPrice(item.getPrice());
+            itemRequest.setStockQuantity(item.getStockQuantity());
+            itemRequest.setCategory(item.getCategory());
+            itemRequest.setIsAvailable(item.getIsAvailable());
+            itemRequest.setImageUrl(item.getImageUrl());
+            itemRequest.setProviderId(providerId);
+
+            model.addAttribute("item", itemRequest);
+            model.addAttribute("providerId", providerId);
+            model.addAttribute("itemId", itemId);
+            return "item/form";
+        } catch (ResponseStatusException e) {
+            model.addAttribute("message", e.getReason());
+            return "error";
+        }
+    }
+
+        @PostMapping("/{itemId}/edit")
+    public String update(@PathVariable Long providerId, @PathVariable Long itemId,
+            @Valid @ModelAttribute("item") ItemRequest itemRequest,
+            BindingResult result, Model model) {
+
+        itemRequest.setProviderId(providerId);
+
+        if (result.hasErrors()) {
+            model.addAttribute("providerId", providerId);
+            model.addAttribute("itemId", itemId);
+            model.addAttribute("errors", result);
+            return "item/form"; // Re-use the same form template
+        }
+
+        try {
+            itemService.updateItem(itemId, itemRequest);
             return "redirect:/providers/" + providerId + "/items";
         } catch (ResponseStatusException e) {
             model.addAttribute("message", e.getReason());

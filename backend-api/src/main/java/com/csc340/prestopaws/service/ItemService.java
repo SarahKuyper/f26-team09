@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 import java.util.List;
+import java.util.Optional;
 
 // Project-specific:
 import com.csc340.prestopaws.entity.Item;
@@ -55,5 +56,30 @@ public class ItemService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found");
         }
         itemRepository.deleteById(id);
+    }
+
+    public Item updateItem(Long id, ItemRequest request) {
+        Item existing = itemRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found"));
+
+        existing.setName(request.getName());
+        existing.setDescription(request.getDescription());
+        existing.setPrice(request.getPrice());
+        existing.setStockQuantity(request.getStockQuantity());
+        existing.setCategory(request.getCategory());
+        existing.setIsAvailable(request.getIsAvailable());
+
+        if (request.getImageUrl() == null || request.getImageUrl().trim().isEmpty()) {
+            existing.setImageUrl("/Images/NoImage.jpg");
+        } else {
+            existing.setImageUrl(request.getImageUrl());
+        }
+
+        return itemRepository.save(existing);
+    }
+
+    public Item getItemById(Long id) {
+        return itemRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found"));
     }
 }

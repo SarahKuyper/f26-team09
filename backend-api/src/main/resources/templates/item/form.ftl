@@ -14,9 +14,14 @@
     </header>
 
     <main>
-        <h2>Create a new item</h2>
+        <h2><#if itemId??>Edit Item<#else>Create a new item</#if></h2>
 
-        <form action="/providers/${providerId}/items" method="post">
+        <!-- If itemId exists, we are editing. Otherwise, we are creating. -->
+        <#if itemId??>
+            <form action="/providers/${providerId}/items/${itemId}/edit" method="post">
+        <#else>
+            <form action="/providers/${providerId}/items" method="post">
+        </#if>
 
             <div>
                 <label>Name:</label><br>
@@ -68,7 +73,7 @@
                 </label>
             </div>
 
-            <button type="submit" class="button">Create item</button>
+            <button type="submit" class="button"><#if itemId??>Save Changes<#else>Create item</#if></button>
         </form>
 
         <p style="margin-top: 20px;"><a href="/providers/${providerId}/items">Back to items</a></p>

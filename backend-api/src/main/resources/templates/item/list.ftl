@@ -35,11 +35,12 @@
                 </thead>
                 <tbody>
                     <#list items as item>
-                        <tr>
+                        <!-- onclick navigates to the edit route -->
+                        <tr onclick="window.location='/providers/${provider.id}/items/${item.id}/edit';" style="cursor: pointer;" title="Click to edit">
                             <td>
                                 <img src="${item.imageUrl!('/Images/NoImage.jpg')}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #eadfd2;">
                             </td>
-                            <td>${item.name}</td>
+                            <td style="text-decoration: underline;">${item.name}</td>
                             <td>${item.category!""}</td>
                             <td>$${item.price!"0.00"}</td>
                             <td>${item.stockQuantity!"0"}</td>
