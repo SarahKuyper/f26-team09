@@ -10,8 +10,7 @@
     <p>Provider ID: ${provider.id}</p>
 
     <p>
-        <a href="/providers/${provider.id}/edit">Edit profile</a> |
-        <a href="/providers/${provider.id}/items">View my items</a>
+        <a href="/providers/${provider.id}/edit">Edit profile</a>
     </p>
 
     <form action="/providers/${provider.id}/delete" method="post"

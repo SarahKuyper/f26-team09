@@ -2,6 +2,7 @@ package com.csc340.prestopaws.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import java.util.List;
 
@@ -48,6 +49,11 @@ public class ProviderService {
         if (!providerRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Provider not found");
         }
-        providerRepository.deleteById(id);
+        try {
+            providerRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT,
+                    "Cannot delete: this provider has items referenced by existing orders.");
+        }
     }
 }

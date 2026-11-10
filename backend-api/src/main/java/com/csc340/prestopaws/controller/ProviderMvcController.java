@@ -91,4 +91,14 @@ public class ProviderMvcController {
             return "error";
         }
     }
+
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable Long id) {
+        try {
+            providerService.deleteProvider(id);
+        } catch (ResponseStatusException e) {
+            System.err.println("Delete provider " + id + " failed: " + e.getReason());
+        }
+        return "redirect:/";
+    }
 }
