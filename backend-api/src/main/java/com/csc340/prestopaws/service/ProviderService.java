@@ -32,4 +32,22 @@ public class ProviderService {
     public List<Provider> getAllProviders() {
         return providerRepository.findAll();
     }
+
+    public Provider updateProvider(Long id, Provider updated) {
+        Provider existing = getProviderById(id);
+        existing.setName(updated.getName());
+        existing.setEmail(updated.getEmail());
+        // Only update password if a new one was provided
+        if (updated.getPassword() != null && !updated.getPassword().isBlank()) {
+            existing.setPassword(updated.getPassword());
+        }
+        return providerRepository.save(existing);
+    }
+
+    public void deleteProvider(Long id) {
+        if (!providerRepository.existsById(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Provider not found");
+        }
+        providerRepository.deleteById(id);
+    }
 }
