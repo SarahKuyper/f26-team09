@@ -46,12 +46,18 @@
 
             <div>
                 <label>Category:</label><br>
-                <input type="text" name="category" value="${item.category!}" />
+                <select name="category">
+                    <option value="Food and Treats" <#if item.category! == "Food and Treats">selected</#if>>Food and Treats</option>
+                    <option value="Health and Hygiene" <#if item.category! == "Health and Hygiene">selected</#if>>Health and Hygiene</option>
+                    <option value="Toys and Enrichment" <#if item.category! == "Toys and Enrichment">selected</#if>>Toys and Enrichment</option>
+                    <option value="Feeding and Watering" <#if item.category! == "Feeding and Watering">selected</#if>>Feeding and Watering</option>
+                </select>
             </div>
 
             <div>
                 <label>Image URL:</label><br>
-                <input type="text" name="imageUrl" value="${item.imageUrl!}" />
+                <input type="text" name="imageUrl" value="${item.imageUrl!}" placeholder="e.g. /Images/item1.webp" />
+                <small style="color: #697581;">Use one of the prototype paths like /Images/item1.webp</small>
             </div>
 
             <div>

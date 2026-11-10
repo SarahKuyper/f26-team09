@@ -25,6 +25,7 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Price</th>
@@ -35,6 +36,9 @@
                 <tbody>
                     <#list items as item>
                         <tr>
+                            <td>
+                                <img src="${item.imageUrl!('/Images/NoImage.jpg')}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px; border: 1px solid #eadfd2;">
+                            </td>
                             <td>${item.name}</td>
                             <td>${item.category!""}</td>
                             <td>$${item.price!"0.00"}</td>
